@@ -14,7 +14,7 @@ class Solution {
 }
 class ReversePairs_Brute {
     public static void main(String[] args) {
-        long[] arr = {40, 25, 19, 12, 9, 6, 2}; // {40, 25, 19, 12, 9, 6, 2}; // {4, 1, 2, 3, 1};
+        long[] arr = {2147483647,2147483647,2147483647,2147483647,2147483647,2147483647}; // {40, 25, 19, 12, 9, 6, 2}; // {40, 25, 19, 12, 9, 6, 2}; // {4, 1, 2, 3, 1};
         long ans = Solution.reversePairs(arr);
         System.out.println("Reversed pair counts: "+ans);
     }
