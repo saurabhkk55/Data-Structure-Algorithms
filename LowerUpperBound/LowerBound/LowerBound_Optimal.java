@@ -8,13 +8,6 @@ class Solution {
         while (left <= right) {
             int mid = (left+right)/2;
 
-            // if (nums[mid] == target) {
-            //     return mid;
-            // }
-            // else if (nums[mid] > target) {
-            //     right = mid - 1;
-            //     ans = mid;
-            // }
             if (nums[mid] >= target) {
                 ans = mid;
                 right = mid - 1;
@@ -30,8 +23,9 @@ class Solution {
 
 class LowerBound_Optimal {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 8, 8, 10, 10, 11};
-        int target = 9; // 12; // 9; // 1;
+        // int[] arr = {1, 2, 3, 4, 5, 8, 8, 10, 10, 11};
+        int[] arr = {1, 8, 8, 8, 8, 8, 8, 10, 10, 11};
+        int target = 8; // 12; // 9; // 1;
         int ans = Solution.lowerBound(arr, target);
         System.out.println("Index at which Element which is just equal to or greater than is "+ans);
     }
