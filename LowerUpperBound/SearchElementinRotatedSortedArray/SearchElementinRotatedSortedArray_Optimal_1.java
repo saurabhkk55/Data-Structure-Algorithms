@@ -1,6 +1,6 @@
 // Search Element in Rotated Sorted Array that contains only unique elements
 
-public class SearchElementinRotatedSortedArray_Optimal {
+public class SearchElementinRotatedSortedArray_Optimal_1 {
 
     static int searchElement (int[] nums, int n, int x) {
         int low = 0, high = n-1;
