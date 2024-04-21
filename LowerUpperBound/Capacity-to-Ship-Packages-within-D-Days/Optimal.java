@@ -1,45 +1,47 @@
-public class Optimal {
-    public static int findDays(int[] weights, int cap) {
-        int days = 1; //First day.
-        int load = 0;
-        int n = weights.length; //size of array.
-        for (int i = 0; i < n; i++) {
-            if (load + weights[i] > cap) {
-                days += 1; //move to next day
-                load = weights[i]; //load the weight.
+class Solution {
+    static int countDays (int[] wt, int n, int totalCapacity) {
+        // System.out.println("totalCapacity: "+totalCapacity);
+        int days = 1; // First day.
+        int load = 0, totalLoad;
+        for (int i=0; i<n; i++) {
+            totalLoad = load + wt[i];
+            if (totalLoad <= totalCapacity) {
+                load += wt[i]; //load the weight on the same day.
             } else {
-                //load the weight on the same day.
-                load += weights[i];
+                days += 1; //move to next day
+                load = wt[i]; //load the weight.
             }
         }
+        // System.out.println("days: "+days);
         return days;
     }
 
-    public static int leastWeightCapacity(int[] weights, int d) {
-        //Find the maximum and the summation:
-        int low = Integer.MIN_VALUE, high = 0;
-        for (int i = 0; i < weights.length; i++) {
-            high += weights[i];
+    public static int leastWeightCapacity(int[] weights, int days) {
+        int n = weights.length, low = Integer.MIN_VALUE, high = 0;
+        for (int i=0; i<n; i++) {
             low = Math.max(low, weights[i]);
+            high += weights[i];
         }
-
         while (low <= high) {
-            int mid = (low + high) / 2;
-            int numberOfDays = findDays(weights, mid);
-            if (numberOfDays <= d) {
-                //eliminate right half
+            int mid = (low+high)/2;
+
+            int totaldays = countDays(weights, n, mid);
+
+            if (totaldays <= days) {
                 high = mid - 1;
             } else {
-                //eliminate left half
                 low = mid + 1;
             }
         }
         return low;
     }
+}
+
+public class Optimal {
     public static void main(String[] args) {
         int[] weights = {5, 4, 5, 2, 3, 4, 5, 6};
         int d = 5;
-        int ans = leastWeightCapacity(weights, d);
+        int ans = Solution.leastWeightCapacity(weights, d);
         System.out.println("The minimum capacity should be: " + ans);
     }
 }
