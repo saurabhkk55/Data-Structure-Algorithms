@@ -40,3 +40,6 @@ public class Optimal {
         System.out.printf("Peak element foundt at row (0-based indexing): %d & column (0-based indexing): %d", ans[0], ans[1]);
     }
 }
+
+// TC: O(logbase2 cols) * rows, here cols = total number of columns & rows = total number of rows
+// SC: o(1)
