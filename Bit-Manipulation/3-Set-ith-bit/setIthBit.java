@@ -2,7 +2,7 @@
 
 public class setIthBit {
     public static void main(String[] args) {
-        int N = 8; // The number for which we want to set a bit
+        int N = 9; // The number for which we want to set a bit
         int checkBit = 2; // The bit position to be set (0-based index)
 
         // Using OR bitwise operator to set the 'checkBit'-th bit
