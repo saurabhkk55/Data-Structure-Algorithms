@@ -25,7 +25,7 @@ class Solution {
     }
 }
 
-public class singleNumber2 {
+public class singleNumber_moreOptimal {
     public static void main(String[] args) {
         int[] arr = {1, 1, 2, 2, 7, 7, 3, 5};
         // int[] arr = {9, 1, 1, 2, 2, 7, 7, 5};
