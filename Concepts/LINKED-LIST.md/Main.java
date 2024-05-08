@@ -23,17 +23,33 @@ class LinkedList {
     public void insertAtBeginning(int data) {
         Node newNode = new Node(data);
         if (k == 0) System.out.println("HEAD: "+head);
-        if (k >= 1) System.out.println("HEAD: "+head+" HEAD-DATA: "+head.data+" HEAD-NEXT: "+head.next);
-        k++;
         newNode.next = head;
         head = newNode;
         System.out.println("newNode: "+newNode+" newNode-DATA: "+newNode.data+" newNode-NEXT: "+newNode.next);
+        if (k >= 1) System.out.println("HEAD: "+head+" HEAD-DATA: "+head.data+" HEAD-NEXT: "+head.next);
+        k++;
+        System.out.println();
+    }
+
+    // Method to insert a new node at the beginning of the linked list
+    public void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+        Node current = head;
+        while(current.next != null) {
+            System.out.println("current.data: "+current.data);
+            System.out.println("current.next: "+current.next);
+            current = current.next;
+            System.out.println("current.data: "+current.data);
+            System.out.println("current.next: "+current.next);
+            System.out.println("------------------------------");
+        }
+        current.next = newNode;
     }
 
     // Method to display the elements of the linked list
     public void display() {
         Node current = head;
-        System.out.print("Linked List: ");
+        System.out.print("Linked List: "+current);
         while (current != null) {
             System.out.print(current.data + " -> ");
             current = current.next;
@@ -51,6 +67,7 @@ public class Main {
         list.insertAtBeginning(30);
         list.insertAtBeginning(20);
         list.insertAtBeginning(10);
+        list.insertAtEnd(80);
 
         // Displaying the linked list
         list.display();
