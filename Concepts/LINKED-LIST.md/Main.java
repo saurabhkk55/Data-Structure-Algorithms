@@ -13,6 +13,7 @@ class Node {
 // LinkedList class to manage basic linked list operations
 class LinkedList {
     private Node head;
+    int linked_list_size = 0;
 
     // Constructor to initialize an empty linked list
     public LinkedList() {
@@ -21,33 +22,35 @@ class LinkedList {
     int k = 0;
     // Method to insert a new node at the beginning of the linked list
     public void insertAtBeginning(int data) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>> INSERTING IN BEGINNING <<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>> INSERTING IN BEGINNING <<<<<<<<<<<<<<<<<<<<<<<<");
         Node newNode = new Node(data);
-        if (k == 0) System.out.println("HEAD: "+head);
+        // if (k == 0) System.out.println("HEAD: "+head);
         newNode.next = head;
         head = newNode;
-        System.out.println("newNode: "+newNode+" | newNode-DATA: "+newNode.data+" | newNode-NEXT: "+newNode.next);
-        if (k >= 1) System.out.println("HEAD: "+head+" | HEAD-DATA: "+head.data+" | HEAD-NEXT: "+head.next);
-        k++;
-        System.out.println("------------------------------");
+        // System.out.println("newNode: "+newNode+" | newNode-DATA: "+newNode.data+" | newNode-NEXT: "+newNode.next);
+        // if (k >= 1) System.out.println("HEAD: "+head+" | HEAD-DATA: "+head.data+" | HEAD-NEXT: "+head.next);
+        // k++;
+        // System.out.println("------------------------------");
+        linked_list_size++;
     }
 
     // Method to insert a new node at the beginning of the linked list
     public void insertAtEnd(int data) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>> INSERTING AT END <<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>> INSERTING AT END <<<<<<<<<<<<<<<<<<<<<<<<");
         Node newNode = new Node(data);
         Node currNode = head;
         while(currNode.next != null) {
-            System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+            // System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
             currNode = currNode.next;
-            System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
-            System.out.println("------------------------------");
+            // System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+            // System.out.println("------------------------------");
         }
         currNode.next = newNode;
+        linked_list_size++;
     }
 
     public void insertMiddle(int data, int idx) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>> INSERTING IN MIDDLE <<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>> INSERTING IN MIDDLE <<<<<<<<<<<<<<<<<<<<<<<<");
         if (idx == 0) {
             insertAtBeginning(data);
         }
@@ -57,36 +60,76 @@ class LinkedList {
             
 
             for (int i=0; i<idx-1; i++) {
-                System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+                // System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
                 currNode = currNode.next;
-                System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
-                System.out.println("------------------------------");
+                // System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+                // System.out.println("------------------------------");
             }
             newNode.next = currNode.next;
             currNode.next = newNode;
         }
+        linked_list_size++;
     }
 
     public void deleteBeginning() {
-        System.out.println(">>>>>>>>>>>>>>>>>>>> DELETE FROM BEGINNING <<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>> DELETE FROM BEGINNING <<<<<<<<<<<<<<<<<<<<<<<<");
         head = head.next;
+        linked_list_size--;
     }
 
     public void deleteEnd() {
-        System.out.println(">>>>>>>>>>>>>>>>>>>> DELETE FROM END <<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>> DELETE FROM END <<<<<<<<<<<<<<<<<<<<<<<<");
         Node currNode = head;
         Node node_before_currNode = null;
-        System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+        // System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
         while(currNode.next != null) {
             node_before_currNode = currNode;
-            System.out.println("BEFORE: currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+            // System.out.println("BEFORE: currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
             currNode = currNode.next;
-            System.out.println("AFTER: currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
-            System.out.println("------------------------------");
+            // System.out.println("AFTER: currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+            // System.out.println("------------------------------");
         }
-        System.out.println("node_before_currNode.data: "+node_before_currNode.data+" | node_before_currNode.next: "+node_before_currNode.next);
-        System.out.println();
+        // System.out.println("node_before_currNode.data: "+node_before_currNode.data+" | node_before_currNode.next: "+node_before_currNode.next);
+        // System.out.println();
         node_before_currNode.next = null;
+        linked_list_size--;
+    }
+
+    public void deleteMiddle(int idx) {
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>> DELETE FROM MIDDLE <<<<<<<<<<<<<<<<<<<<<<<<");
+        if (idx == 0) {
+            deleteBeginning();
+        } else {
+            Node currNode = head;
+            Node node_before_currNode = null;
+            for (int i=0; i<idx; i++) {
+                node_before_currNode = currNode;
+                currNode = currNode.next;
+            }
+            // System.out.println("node_before_currNode.data: "+node_before_currNode.data+" | node_before_currNode.next: "+node_before_currNode.next);
+            // System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
+            node_before_currNode.next = currNode.next;
+            currNode.next = null;
+        }
+        linked_list_size--;
+    }
+
+    public void searchElement(int data) {
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>> SEARCH IN A LINKED-LIST <<<<<<<<<<<<<<<<<<<<<<<<");
+        Node currNode = head;
+        int idx = 0;
+        boolean found = false;
+        while(currNode != null) {
+            if ((currNode.data) == data) {
+                System.out.printf("Element %d found at index: %d\n", data, idx);
+                found = true;
+                break;
+            }
+            currNode = currNode.next;
+            idx++;
+        } if (found == false) {
+            System.out.printf("Linked-List does not contain the element: %d\n", data);
+        }
     }
 
     // Method to display the elements of the linked list
@@ -118,7 +161,11 @@ public class Main {
         list.deleteBeginning();
         list.display();
         list.deleteEnd();
+        list.display();
+        list.deleteMiddle(4);
         // Displaying the linked list
         list.display();
+        list.searchElement(50);
+        System.out.println(list.linked_list_size);
     }
 }
