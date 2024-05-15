@@ -117,10 +117,30 @@ class DoublyLinkedList {
             System.out.println(target+" does not exst in the list.");
         }
     }
+
+    public void reverse() {
+        Node currNode, tempNode;
+        currNode = head;
+        tempNode = head;
+        Node temp_addr = null;
+
+        while(currNode != null) {
+            tempNode = currNode;
+            temp_addr = currNode.prev;
+            currNode.prev = currNode.next;
+            currNode.next = temp_addr;
+            currNode = currNode.prev;
+        }
+        head = tempNode;
+        // System.out.println("tempNode: "+tempNode+" | tempNode.prev: "+tempNode.prev+" | tempNode.data: "+tempNode.data+" | tempNode.next: "+tempNode.next);
+        display();
+        System.out.print("/START");
+    }
     
     public void display() {
         Node currNode;
         currNode = head;
+        // System.out.println("currNode: "+currNode+" | currNode.prev: "+currNode.prev+" | currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
         System.out.println();
         while(currNode != null) {
             // System.out.println("currNode: "+currNode+" | currNode.prev: "+currNode.prev+" | currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
@@ -131,7 +151,7 @@ class DoublyLinkedList {
     }
 }
 
-public class Main {
+public class Main { 
     public static void main(String[] args) {
         DoublyLinkedList list = new DoublyLinkedList();
         System.out.println("\nInsert nodes at the beginning of the list");
@@ -189,6 +209,10 @@ public class Main {
         
         System.out.println("\n\nSize: "+list.doubly_linked_list_size);
         list.display();
+        System.out.println("\n-----------------------------------------------------------");
+        
+        System.out.println("\nReverse the Linked List");
+        list.reverse();
         System.out.println("\n-----------------------------------------------------------");
     }
 }
