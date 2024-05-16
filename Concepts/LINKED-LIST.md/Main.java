@@ -20,9 +20,8 @@ class LinkedList {
         this.head = null; // why are we using this.head here?
     }
     int k = 0;
-    // Method to insert a new node at the beginning of the linked list
+
     public void insertAtBeginning(int data) {
-        System.out.println("\n>>>>>>>>>>>>>>>>>>>> INSERTING IN BEGINNING <<<<<<<<<<<<<<<<<<<<<<<<");
         Node newNode = new Node(data);
         // if (k == 0) System.out.println("HEAD: "+head);
         newNode.next = head;
@@ -34,9 +33,7 @@ class LinkedList {
         linked_list_size++;
     }
 
-    // Method to insert a new node at the beginning of the linked list
     public void insertAtEnd(int data) {
-        System.out.println("\n>>>>>>>>>>>>>>>>>>>> INSERTING AT END <<<<<<<<<<<<<<<<<<<<<<<<");
         Node newNode = new Node(data);
         Node currNode = head;
         while(currNode.next != null) {
@@ -50,7 +47,6 @@ class LinkedList {
     }
 
     public void insertMiddle(int data, int idx) {
-        System.out.println("\n>>>>>>>>>>>>>>>>>>>> INSERTING IN MIDDLE <<<<<<<<<<<<<<<<<<<<<<<<");
         if (idx == 0) {
             insertAtBeginning(data);
         }
@@ -72,13 +68,11 @@ class LinkedList {
     }
 
     public void deleteBeginning() {
-        System.out.println("\n>>>>>>>>>>>>>>>>>>>> DELETE FROM BEGINNING <<<<<<<<<<<<<<<<<<<<<<<<");
         head = head.next;
         linked_list_size--;
     }
 
     public void deleteEnd() {
-        System.out.println("\n>>>>>>>>>>>>>>>>>>>> DELETE FROM END <<<<<<<<<<<<<<<<<<<<<<<<");
         Node currNode = head;
         Node node_before_currNode = null;
         // System.out.println("currNode.data: "+currNode.data+" | currNode.next: "+currNode.next);
@@ -96,7 +90,6 @@ class LinkedList {
     }
 
     public void deleteMiddle(int idx) {
-        System.out.println("\n>>>>>>>>>>>>>>>>>>>> DELETE FROM MIDDLE <<<<<<<<<<<<<<<<<<<<<<<<");
         if (idx == 0) {
             deleteBeginning();
         } else {
@@ -115,7 +108,6 @@ class LinkedList {
     }
 
     public void searchElement(int data) {
-        System.out.println("\n>>>>>>>>>>>>>>>>>>>> SEARCH IN A LINKED-LIST <<<<<<<<<<<<<<<<<<<<<<<<");
         Node currNode = head;
         int idx = 0;
         boolean found = false;
@@ -132,7 +124,16 @@ class LinkedList {
         }
     }
 
-    // Method to display the elements of the linked list
+    public void reverse() {
+        Node next = null, currNode = head, prevNode = null;
+        while(currNode != null) {
+            next = currNode.next;
+            currNode.next = prevNode;
+            prevNode = currNode;
+            currNode = next;
+        }
+        head = prevNode;
+    }
     public void display() {
         Node current = head;
         System.out.println("Linked List: "+current);
@@ -150,22 +151,49 @@ public class Main {
         LinkedList list = new LinkedList();
 
         // Inserting elements into the linked list at the beginning
+        System.out.println("INSERTING IN THE BEGINNING:");
         list.insertAtBeginning(50);
         list.insertAtBeginning(40);
         list.insertAtBeginning(30);
         list.insertAtBeginning(20);
         list.insertAtBeginning(10);
+        list.display();
+        System.out.println("--------------------------------");
+        
+        System.out.println("INSERTING IN THE MIDDLE:");
         list.insertMiddle(100, 5);
+        list.display();
+        System.out.println("--------------------------------");
+        
+        System.out.println("INSERTING AT END:");
         list.insertAtEnd(80);
         list.display();
+        System.out.println("--------------------------------");
+        
+        System.out.println("DELETE FROM BEGINNING:");
         list.deleteBeginning();
         list.display();
+        System.out.println("--------------------------------");
+        
+        System.out.println("DELETE FROM END:");
         list.deleteEnd();
         list.display();
+        System.out.println("--------------------------------");
+        
+        System.out.println("DELETE FROM MIDDLE:");
         list.deleteMiddle(4);
-        // Displaying the linked list
         list.display();
+        System.out.println("--------------------------------");
+        
+        System.out.println("SEARCH IN A LINKED-LIST:");
         list.searchElement(50);
+        System.out.println("--------------------------------");
+        System.out.println("LINKED-LIST SIZE:");
         System.out.println(list.linked_list_size);
+        System.out.println("--------------------------------");
+        System.out.println("REVERSE LINKED-LIST:");
+        list.reverse();
+        list.display();
+        System.out.println("--------------------------------");
     }
 }
