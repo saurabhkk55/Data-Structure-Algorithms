@@ -1,4 +1,17 @@
+# [234](https://leetcode.com/problems/palindrome-linked-list/). `Palindrome Linked List`
+
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
 class Solution {
     public ListNode first_mid(ListNode head) {
         ListNode slow = head, fast = head;
@@ -8,6 +21,7 @@ class Solution {
         }
         return slow;
     }
+    
     public ListNode reverse(ListNode head) {
         ListNode next = null, prev_node = null, curr_node = head;
         while(curr_node != null) {
@@ -18,6 +32,7 @@ class Solution {
         }
         return prev_node;
     }
+    
     public boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) return true;
         ListNode mid_node = first_mid(head);
