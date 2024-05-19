@@ -1,4 +1,4 @@
-# [Given a linked list of 0s, 1s and 2s, sort it](https://www.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1)
+# [`Sort a linked list of 0s, 1s and 2s`](https://www.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1)
 
 Given a linked list of N nodes where nodes can contain values 0s, 1s, and 2s only. The task is to segregate 0s, 1s, and 2s linked list such that all zeros segregate to head side, 2s at the end of the linked list, and 1s in the mid of 0s and 2s.
 
@@ -28,6 +28,7 @@ Explanation: After arranging all the
 the output will be 0 1 2 2.
 ```
 
+## `Important case`
 ```
 Example 3:
 
