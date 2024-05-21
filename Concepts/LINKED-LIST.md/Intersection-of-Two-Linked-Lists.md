@@ -119,3 +119,49 @@ public class Solution {
     }
 }
 ```
+
+## `Optimal`
+
+```java
+/****************************************************************
+ Following is the class structure of the Node class:
+
+ class Node {
+    public int data;
+    public Node next;
+
+    Node() {
+        this.data = 0;
+        this.next = null;
+    }
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+    Node(int data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+ }
+ *****************************************************************/
+
+public class Solution {
+    public static int findIntersection(Node firstHead, Node secondHead) {
+        //Write your code here
+
+        Node currNode_1 = firstHead, currNode_2 = secondHead;
+        Node head1 = firstHead, head2 = secondHead;
+
+        while(currNode_1 != currNode_2) {
+            if(currNode_1 == null) currNode_1 = head2;
+            else currNode_1 = currNode_1.next;
+            if(currNode_2 == null) currNode_2 = head1;
+            else currNode_2 = currNode_2.next;
+        }
+        if(currNode_1 == null) return -1;
+        return currNode_1.data;
+    }
+}
+```
+
+# [`Similar on Leetcode`](https://leetcode.com/problems/intersection-of-two-linked-lists/description/)
