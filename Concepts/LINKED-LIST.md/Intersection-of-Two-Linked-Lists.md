@@ -164,4 +164,4 @@ public class Solution {
 }
 ```
 
-# [`Similar on Leetcode`](https://leetcode.com/problems/intersection-of-two-linked-lists/description/)
+# [`160 Leetcode`](https://leetcode.com/problems/intersection-of-two-linked-lists/description/)
