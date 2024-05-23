@@ -18,6 +18,8 @@ class GfG
     Node removeDuplicates(Node head)
     {
 	    // Your code here
+		if (head == null) return head;
+		
 	    while((head.next != null) && (head.data == head.next.data)) {
 	        head = head.next;
 	    }
