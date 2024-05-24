@@ -30,7 +30,7 @@ class Solution {
 
 ## `Recursive`
 ```java
-/**
+/*
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -45,7 +45,7 @@ class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode currNode = head;
         if((currNode == null) || (currNode.next == null)) return currNode;
-
+        
         head = reverseList(currNode.next);
         ListNode front = currNode.next;
         front.next = currNode;
