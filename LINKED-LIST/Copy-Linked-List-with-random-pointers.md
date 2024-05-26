@@ -115,5 +115,5 @@ class Solution {
 }
 
 // TC: O(3N)
-// SC: O(1)
+// SC: O(N) as per question we need to create a copy of a existing linked list that is why O(N) Scape complexity.
 ```
