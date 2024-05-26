@@ -113,4 +113,7 @@ class Solution {
         return tempNode.next;
     }
 }
+
+// TC: O(3N)
+// SC: O(1)
 ```
