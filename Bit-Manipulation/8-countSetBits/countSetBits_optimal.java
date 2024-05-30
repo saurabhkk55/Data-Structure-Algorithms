@@ -6,12 +6,12 @@ public class countSetBits_optimal {
 
         int cnt = 0;
         while (N >= 1) {
-        // Compact way using bitwise AND to efficiently count set bits:
-        // - The rightmost set bit in N is flipped to 0 by ANDing with (N - 1).
-        //   This effectively removes the rightmost set bit, and the loop continues
-        //   until all set bits are cleared.
-        N = N & (N - 1);
-        cnt++;
+            // Compact way using bitwise AND to efficiently count set bits:
+            // - The rightmost set bit in N is flipped to 0 by ANDing with (N - 1).
+            //   This effectively removes the rightmost set bit, and the loop continues
+            //   until all set bits are cleared.
+            N = N & (N - 1);
+            cnt++;
         }
 
         // Print the total number of set bits (1s) in the binary representation of N

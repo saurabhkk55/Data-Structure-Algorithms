@@ -57,7 +57,7 @@ class CustomStack {
     }
 }
 
-public class LearnStack {
+public class StackUsingArray {
     public static void main(String[] args) {
         CustomStack obj = new CustomStack();
 

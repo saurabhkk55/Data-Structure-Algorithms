@@ -1,4 +1,4 @@
-// Count the number of set bits (1s) in the binary representation of an integer N 
+ // Count the number of set bits (1s) in the binary representation of an integer N 
 
 public class countSetBits_better {
     public static void main(String[] args) {
