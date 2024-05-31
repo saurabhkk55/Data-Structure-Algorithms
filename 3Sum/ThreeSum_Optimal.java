@@ -51,3 +51,45 @@ public class ThreeSum_Optimal {
         System.out.println(st);
     }
 }
+
+// Using while loop
+
+// class Solution {
+//     public List<List<Integer>> threeSum(int[] nums) {
+//         Arrays.sort(nums);
+        
+//         int left = 0, middle = left+1, right = nums.length-1;
+//         List<List<Integer>> ans_list = new ArrayList<>();
+
+//         while(left < nums.length){
+//             while((left != 0) && (left < nums.length) && (nums[left] == nums[left-1])) {
+//                 left++;
+//             }
+//             middle = left + 1;
+//             right = nums.length-1;
+//             while(middle < right) {
+//                 int three_elem_sum = nums[left] + nums[middle] + nums[right];
+//                 if(three_elem_sum == 0) {
+//                     List<Integer> temp_list = new ArrayList<>();
+//                     temp_list.add(nums[left]);
+//                     temp_list.add(nums[middle]);
+//                     temp_list.add(nums[right]);
+//                     ans_list.add(temp_list);
+
+//                     middle++;
+//                     right--;
+
+//                     while((middle < nums.length) && (nums[middle] == nums[middle-1])) {
+//                         middle++;
+//                     }
+//                     while((right > 0) && (nums[right] == nums[right+1])) {
+//                         right--;
+//                     }
+//                 } else if (three_elem_sum < 0) middle++;
+//                 else right--;
+//             }
+//             left++;
+//         }
+//         return ans_list;
+//     }
+// }
