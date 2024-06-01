@@ -44,4 +44,25 @@ class MyStack {
  * int param_3 = obj.top();
  * boolean param_4 = obj.empty();
  */
+
+/*
+### Algorithm for `push(int elem)`
+1. Add the new element `elem` to the queue.
+2. If the current size of the queue (`queue_size`) is greater than 0:
+    - For each element already in the queue (except the newly added one):
+        - Add the front element of the queue to the back of the queue.
+        - Remove the front element of the queue.
+3. Increment `queue_size` by 1.
+4. Print the pushed element.
+
+### Algorithm for `pop()`
+1. Decrement `queue_size` by 1.
+2. Remove and return the front element of the queue.
+
+### Algorithm for `top()`
+1. Return the front element of the queue without removing it.
+
+### Algorithm for `empty()`
+1. Return `true` if the queue is empty; otherwise, return `false`.
+*/
 ```
