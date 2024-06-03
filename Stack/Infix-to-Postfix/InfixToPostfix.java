@@ -52,7 +52,7 @@ public class InfixToPostfix {
         String infix_str = "h^m^q^(7-4)";      // its postfix should be hm^q^74-^
         Solution obj = new Solution();
         String postfix_str = obj.infix_to_postfix(infix_str);
-        System.out.printf("Infix: %S & Postfix: %S", infix_str, postfix_str);
+        System.out.printf("Infix: %s & Postfix: %s", infix_str, postfix_str);
     }
 }
 

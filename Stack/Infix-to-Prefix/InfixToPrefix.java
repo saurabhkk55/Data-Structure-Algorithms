@@ -88,6 +88,6 @@ public class InfixToPrefix {
         // String infix_str = "(a-b/c)*(a/k-l)";    // its postfix should be *-a/bc-/akl
         Solution obj = new Solution();
         String prefix_str = obj.infix_to_prefix(infix_str);
-        System.out.printf("Infix: %S & Pretfix: %S", infix_str, prefix_str);
+        System.out.printf("Infix: %s & Pretfix: %s", infix_str, prefix_str);
     }
 }
