@@ -82,10 +82,10 @@ class Solution {
 
 public class InfixToPrefix {
     public static void main(String[] args) {
-        String infix_str = "a*b/(d+c)*e"; // its postfix should be */*ab+dce
-        // String infix_str = "a+b*(d+e)";      // its postfix should be +a*b+de
-        // String infix_str = "h^m^q^(7-4)";      // its postfix should be hm^q^74-^
-        // String infix_str = "(a-b/c)*(a/k-l)";      // its postfix should be *-A/BC-/AKL
+        String infix_str = "a*b/(d+c)*e";           // its postfix should be */*ab+dce
+        // String infix_str = "a+b*(d+e)";          // its postfix should be +a*b+de
+        // String infix_str = "h^m^q^(7-4)";        // its postfix should be ^^^hmq-74
+        // String infix_str = "(a-b/c)*(a/k-l)";    // its postfix should be *-a/bc-/akl
         Solution obj = new Solution();
         String prefix_str = obj.infix_to_prefix(infix_str);
         System.out.printf("Infix: %S & Pretfix: %S", infix_str, prefix_str);
