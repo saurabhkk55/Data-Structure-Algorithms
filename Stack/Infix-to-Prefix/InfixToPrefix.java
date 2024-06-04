@@ -26,9 +26,9 @@ class Solution {
                 if(stk.isEmpty()) stk.push(item);
                 else {
                     char top = stk.peek();
-                    if(precedence_of(item) > precedence_of(top)) stk.push(item);
+                    if(precedence_of(item) >= precedence_of(top)) stk.push(item);
                     else {
-                        while(!stk.isEmpty() && precedence_of(stk.peek()) >= precedence_of(item)) {
+                        while(!stk.isEmpty() && precedence_of(stk.peek()) > precedence_of(item)) {
                             ans = ans + stk.peek();
                             stk.pop();
                         }
@@ -49,18 +49,20 @@ class Solution {
         int i = 0;
         int j = charArray.length - 1;
     
-        while (i < j) {
+        while (i <= j) {
             // Swap parentheses if found
             if (charArray[i] == '(') charArray[i] = ')';
             else if (charArray[i] == ')') charArray[i] = '(';
             
-            if (charArray[j] == ')') charArray[j] = '(';
-            else if (charArray[j] == '(') charArray[j] = ')';
-            
-            // Swap characters
-            char temp = charArray[i];
-            charArray[i] = charArray[j];
-            charArray[j] = temp;
+            if(j != i) {
+                if (charArray[j] == ')') charArray[j] = '(';
+                else if (charArray[j] == '(') charArray[j] = ')';
+                
+                // Swap characters
+                char temp = charArray[i];
+                charArray[i] = charArray[j];
+                charArray[j] = temp;
+            }
             
             i++;
             j--;
@@ -82,7 +84,7 @@ class Solution {
 
 public class InfixToPrefix {
     public static void main(String[] args) {
-        String infix_str = "a*b/(d+c)*e";           // its postfix should be */*ab+dce
+        String infix_str = "a*b/(d+c)*e";           // its postfix should be */*ab+dce 
         // String infix_str = "a+b*(d+e)";          // its postfix should be +a*b+de
         // String infix_str = "h^m^q^(7-4)";        // its postfix should be ^^^hmq-74
         // String infix_str = "(a-b/c)*(a/k-l)";    // its postfix should be *-a/bc-/akl
@@ -91,3 +93,23 @@ public class InfixToPrefix {
         System.out.printf("Infix: %s & Pretfix: %s", infix_str, prefix_str);
     }
 }
+
+/*
+### Algorithm Steps:
+
+1. **Reverse the Infix Expression:**
+    - Reverse the input infix string.
+    - While reversing, replace each '(' with ')' and vice versa.
+
+2. **Convert Reversed Infix to Postfix:**
+    - Use the algorithm for infix to postfix conversion on the reversed string with a single change mentioned below.
+    - If an operator with equal or greater precedence than the top of the stack is encountered, push it onto the stack.
+    - If an operator with lower precedence than the top of the stack is encountered, pop from the stack and append to `ans` until an operator with lower precedence or an empty stack is encountered, then push `item` onto the stack.
+
+3. **Reverse the Postfix Expression:**
+    - Reverse the postfix expression obtained from the previous step.
+    - While reversing, replace each '(' with ')' and vice versa.
+
+4. **The Resulting String is the Prefix Expression:**
+    - The final reversed string from step 3 is the desired prefix expression.
+ */
