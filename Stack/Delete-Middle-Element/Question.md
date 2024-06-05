@@ -1,5 +1,8 @@
 # [Delete middle element from stack](https://www.naukri.com/code360/problems/delete-middle-element-from-stack_985246?leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbarcodestudio&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio&leftPanelTabValue=PROBLEM)
 
+- If stack size is even then delete the first middle
+- If stack size is odd then there will be only 1 middle, just delete that
+
 ```java
 import java.util.* ;
 import java.io.*; 

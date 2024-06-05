@@ -1,3 +1,7 @@
+// Delete middle element from stack
+// - If stack size is even then delete the first middle
+// - If stack size is odd then there will be only 1 middle, just delete that
+
 import java.util.Stack;
 
 class Solution {
