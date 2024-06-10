@@ -173,35 +173,29 @@ Optimal 2: Better than Optimal 1
 
 #############################################################################
 
-# Longest Subarray with given Sum K (for both +ve and -ve arrays)
+# `Longest Subarray with given Sum K`
 
-Better: using HashMap
-1. **Initialization:**
-    `max_len` initialized to 0 to store the maximum length of the subarray with sum (`k`) found so far.
-    `preSumMap` initialized as an empty hashmap to store prefix sums and their corresponding indices.
-    `prefix_sum` initialized to 0 to keep track of the running prefix sum as we iterate through the array.
+## 1.  `Optimal: if array contains +ve, -ve and zeroes`
+1. Initialize `idx`, `sum`, and `maxLen` to 0.
+2. Create an empty HashMap `hm` to store cumulative sums and their indices.
+3. Loop through the array using `idx` as the index.
+   1. Add the value of the current element (`A[idx]`) to `sum`.
+   2. If `sum` equals `K`, set `maxLen` to `idx + 1` because the subarray from the start to the current index has a sum of `K`.
+   3. Calculate the remaining sum `rem` as `sum - K`.
+   4. If `hm` contains the key `rem`, calculate the length of the subarray as `idx - hm.get(rem)` and update `maxLen` if this length is greater than the current `maxLen`.
+   5. If `hm` does not contain the key `sum`, store the pair `(sum, idx)` in `hm`.
+4. Increment `idx` and repeat the process until the end of the array.
+5. Return `maxLen`, which holds the length of the longest subarray with sum equal to `K`.
 
-2. **Iterate through the array:**
-   - For each index (`i`) from 0 to (`n-1`) (where (`n`) is the size of the array):
-     - Update `prefix_sum` by adding the current element `a[i]` to the previous `prefix_sum`.
-     - Check if `prefix_sum` is equal to (`k`):
-		- If yes, update `max_len` to (`i + 1`) (length of the subarray ending at the current index).
-     - Calculate `remaining_sum` as `prefix_sum - k`.
-     - Check if `remaining_sum` exists in `preSumMap`:
-		- If yes, calculate the length of the subarray with sum (`k`) ending at the current index: (`i - preSumMap[remaining_sum]`).
-		- Update `max_len` if this length is greater than the current maximum.
-     - Add `prefix_sum` to `preSumMap` with its index (`i`), but only if `prefix_sum` is not already in `preSumMap`.
-
-3. **Return `max_len`:** This will be the length of the longest subarray with sum (`k`) found in the array.
-
-Optimal: 2 pointers
-1. Initialize two pointers, `left` and `right`, to the start of the array.
-2. Initialize `sum` to the first element of the array, and `maxLen` to 0.
-3. While `right` is less than the length of the array:
-   a. If `sum` is greater than `k`, reduce the subarray from the left side until `sum` becomes less than or equal to `k`.
-   b. If `sum` is equal to `k`, update `maxLen` to the maximum of `maxLen` and the length of the current subarray (`right - left + 1`).
-   c. Move the `right` pointer forward and add the new element to `sum`.
-4. Return `maxLen`, which is the length of the longest subarray with sum `k`.
+## 2. `Optimal: if All the elements in the array are positive (including zeroes)`
+1. Initialize `left`, `right`, and `maxLen` to 0.
+2. Initialize `sum` to 0.
+3. Loop through the array using `right` as the index.
+   1. Add the value of the current element (`a[right]`) to `sum`.
+   2. While `sum` is greater than `k` and `left` is less than or equal to `right`, subtract `a[left]` from `sum` and increment `left`.
+   3. If `sum` equals `k`, calculate the length of the current subarray (`right - left + 1`) and update `maxLen` if this length is greater than the current `maxLen`.
+4. Increment `right` and repeat the process until the end of the array.
+5. Return `maxLen`, which holds the length of the longest subarray with sum equal to `k`.
 
 #############################################################################
 
