@@ -52,7 +52,7 @@ class Solution {
 class countInversion_Optimal {
     public static void main(String[] args) {
         int[] arr = {5, 3, 2, 4, 1};
-        int count = 0;
+        // int count = 0;
         int ans = Solution.countInversion(arr);
         System.out.println("Total Inversion pairs: "+ ans);
     }
