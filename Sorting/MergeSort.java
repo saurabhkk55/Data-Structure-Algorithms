@@ -35,9 +35,9 @@ class Solution {
     static List<Integer> initiate_merge_sort (List<Integer> arr, int low, int high) {
         if (low == high) return Arrays.asList();
         int mid = (low+high)/2;
-        initiate_merge_sort(arr, low, mid);
-        initiate_merge_sort(arr, mid+1, high);
-        merge(arr, low, mid, high);
+        initiate_merge_sort(arr, low, mid);     // The call will sort the left subarray
+        initiate_merge_sort(arr, mid+1, high);  // The call will sort the right subarray
+        merge(arr, low, mid, high);             // Merge the two sorted halves into a single sorted subarray
         return arr;
     }
 
