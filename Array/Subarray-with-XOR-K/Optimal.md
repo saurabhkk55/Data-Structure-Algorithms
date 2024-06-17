@@ -12,12 +12,12 @@ public class Solution {
         int idx = 0, cnt = 0, total_xor = 0, rem_xor;
 
         while(idx < a.length) {
-            total_xor = total_xor ^ a[idx];
-            rem_xor = total_xor ^ b;
+            total_xor = total_xor ^ a[idx]; // Calculate cumulative XOR
+            rem_xor = total_xor ^ b;        // XOR of the remaining part we need to find to get K
 
-            if(hm.containsKey(rem_xor)) cnt += hm.get(rem_xor);
+            if(hm.containsKey(rem_xor)) cnt += hm.get(rem_xor); // If the required XOR exists in the map, add its frequency to count
             
-            if(hm.containsKey(total_xor)) hm.put(total_xor, (hm.get(total_xor)+1));
+            if(hm.containsKey(total_xor)) hm.put(total_xor, (hm.get(total_xor)+1)); // Update the frequency of current XOR in the map
             else hm.put(total_xor, 1);
             
             idx++;

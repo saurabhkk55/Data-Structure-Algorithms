@@ -1,6 +1,6 @@
 <hr style="border: 10px solid green;">
 
-# 16. `To sort an array containing only 0s, 1s, and 2s:`
+# 1. `To sort an array containing only 0s, 1s, and 2s:`
 
 ```java
 // Input
@@ -39,49 +39,7 @@ public static void sortColors(int[] arr) {
 
 <hr style="border: 10px solid green;">
 
-# 17. `Find the Majority Element that occurs more than N/2 times`
-
-```java
-// Input
-int[] nums = {2, 2, 1, 1, 1, 2, 2}; // OUTPUT: 2
-```
-
-```java
-public static int findMajorityElement(int[] nums) {
-   // Step 1: Initialize the count and potential majority element
-   int cnt = 0;
-   int el = 0;
-   
-   // Step 2: Find the potential majority element using Boyer-Moore Voting Algorithm
-   for (int num : nums) {
-      if (cnt == 0) {
-            // If count is 0, set the current element as the candidate and reset the count
-            el = num;
-            cnt = 1;
-      } else if (num == el) {
-            // If the current element is the candidate, increment the count
-            cnt++;
-      } else {
-            // If the current element is different, decrement the count
-            cnt--;
-      }
-   }
-   
-   // Step 3: Verify if the candidate is actually the majority element
-   cnt = 0;  // Reset count to zero for the verification step
-   for (int num : nums) {
-      if (num == el) cnt++;  // Count the occurrences of the candidate in the array
-   }
-   
-   // Step 4: Check if the candidate occurs more than N/2 times
-   if (cnt > nums.length / 2) return el;  // If true, return the candidate as the majority element
-   else return -1;                        // If false, return -1 indicating no majority element exists
-}
-```
-
-<hr style="border: 10px solid green;">
-
-# 18. `Kadane's Algorithm` : `Maximum Subarray Sum in an Array`
+# 2. `Kadane's Algorithm` : `Maximum Subarray Sum in an Array`
 
 ## `Question 1`: `Find the Maximum Subarray Sum`
 
@@ -160,50 +118,88 @@ public static int[] findMaxSubarray(int[] arr) {
 
 <hr style="border: 10px solid green;">
 
-# 19. `Stock Buy and Sell`
-
-## `Question`
-
-```markdown
-- You are given an array of prices where prices[i] is the price of a given stock on an ith day.
-- You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
-- Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
-```
+# 3. `Longest Subarray with given Sum K`
 
 ```java
 // Input
-int[] prices = {7, 1, 5, 3, 6, 4};
+int[] A = {10, 2, -2, -20, 10};
+int N = A.length;
+int K = -10;
 
 // OUTPUT
-5
-
-// Explanation
-Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-
-// Note: Buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+4
 ```
 
+## `Optimal: if array contains +ve, -ve and zeroes`
+
 ```java
-public static int maxProfit(int[] prices) {
-   // Initializing variables
-   int currentProfit, maxProfit = 0;
-   int minBuyPrice = prices[0];
+public static int lenOfLongSubarr (int A[], int N, int K) {
+   // Initialize variables
+   int idx = 0;          // Index to iterate through the array
+   int sum = 0;          // To store the cumulative sum
+   int maxLen = 0;       // To store the maximum length of subarray with sum K
+   HashMap<Integer, Integer> hm = new HashMap<>();  // HashMap to store cumulative sums and their indices
    
    // Iterate through the array
-   for (int i = 0; i < prices.length; i++) {
-      int currentSellPrice = prices[i];
+   while(idx < N) {
+      sum += A[idx]; // Update cumulative sum
       
-      currentProfit = currentSellPrice - minBuyPrice; // Calculate the current profit if sold at currentSellPrice
-      maxProfit = Math.max(maxProfit, currentProfit); // Update maxProfit if currentProfit is higher
-      minBuyPrice = Math.min(currentSellPrice, minBuyPrice); // Update minBuyPrice to be the minimum of minBuyPrice and currentSellPrice
+      // If the cumulative sum equals K, update maxLen
+      if(sum == K) maxLen = idx + 1;
+      
+      // Calculate the remaining sum needed to form sum K
+      int rem = sum - K;
+      
+      // If the remaining sum exists in the HashMap, update maxLen
+      if(hm.containsKey(rem)) {
+            len = idx - hm.get(rem);         // Calculate the length of the subarray
+            maxLen = Math.max(maxLen, len);  // Update maxLen if the current subarray is longer
+      }
+      
+      // Store the cumulative sum and its index in the HashMap if not already present
+      if(!hm.containsKey(sum)) hm.put(sum, idx);
+      
+      idx++;   // Move to the next index
    }
-   return maxProfit; // Return the maximum profit found
+
+   return maxLen; // Return the maximum length of the subarray with sum K
+}
+```
+
+## `Optimal: if All the elements in the array are positive (including zeroes)`
+
+```java
+public static int findLongestSubarrayWithSumK(int[] arr, int K) {
+   int left = 0, right = 0, sum = 0, maxLen = 0;
+
+   // Iterate through the array using 'right' as the index
+   while (right < arr.length) {
+      // Add the value of the current element to 'sum'
+      sum += arr[right];
+
+      // While 'sum' is greater than 'K' and 'left' is less than or equal to 'right'
+      while (sum > K && left <= right) {
+            sum -= arr[left]; // Subtract the value at 'left' from 'sum'
+            left++;           // Increment 'left'
+      }
+
+      // If 'sum' equals 'K', update 'maxLen' if the current subarray is longer
+      if (sum == K) {
+            maxLen = Math.max(maxLen, right - left + 1);
+      }
+
+      // Increment 'right' to process the next element
+      right++;
+   }
+
+   // Return the maximum length of subarray with sum 'K'
+   return maxLen;
 }
 ```
 
 <hr style="border: 10px solid green;">
 
-# 20. `Count total number of Subarrays Sum Equals K`
+# 4. `Count total number of Subarrays Sum Equals K`
 
 ```java
 // Input
@@ -229,12 +225,41 @@ public int subarraySum(int[] nums, int k) {
       if(hm.containsKey(rem)) cnt += hm.get(rem);
       
       if(hm.containsKey(sum)) hm.put(sum, (hm.get(sum) + 1)); 
-      else hm.put(sum, 1); . Else, insert the sum with a frequency of 1.
+      else hm.put(sum, 1);
       
       idx++;
    }
    return cnt;
 }
+```
+
+<hr style="border: 10px solid green;">
+
+# 5. `Count total number of Subarrays Sum Equals K using XOR`
+
+```java
+public static int subarraysWithSumK(int []a, int b) {
+      // Create a hashmap and insert hm.put(0, 1)
+      HashMap<Integer, Integer> hm = new HashMap<>();
+      hm.put(0, 1);
+      
+      int idx = 0, cnt = 0, total_xor = 0, rem_xor;
+      
+      while(idx < a.length) {
+            total_xor = total_xor ^ a[idx]; // Calculate cumulative XOR
+            
+            rem_xor = total_xor ^ b;        // XOR of the remaining part we need to find to get K
+            if(hm.containsKey(rem_xor)) cnt += hm.get(rem_xor); 
+            
+            if(hm.containsKey(total_xor)) hm.put(total_xor, (hm.get(total_xor)+1));
+            else hm.put(total_xor, 1);
+            
+            idx++;
+      }
+      return cnt;
+}
+// TC: O(n)
+// SC: O(1)
 ```
 
 <hr style="border: 10px solid green;">
