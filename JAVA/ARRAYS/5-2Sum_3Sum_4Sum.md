@@ -143,9 +143,58 @@ public List<List<Integer>> threeSum(int[] nums, int target) {
 # `4 sum`
 
 ```java
+// Input
+int[] nums = {1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5};
+int target = 8;
 
+// OUTPUT
+[[1,1,1,5],[1,1,2,4],[1,1,3,3],[1,2,2,3]]
 ```
 
 ```java
-
+public List<List<Integer>> fourSum(int[] nums, int target) {
+   int n = nums.length;
+   List<List<Integer>> ans = new ArrayList<>();
+   
+   if(n < 4) return ans;
+   
+   Arrays.sort(nums);
+   
+   for(int i=0; i<n-3; i++) {
+      if(i != 0 && nums[i] == nums[i-1]) continue; // Skip duplicates
+      
+      for(int j=i+1; j<n-2; j++) {
+            if(j-1 != i && nums[j] == nums[j-1]) continue; // Skip duplicates
+            
+            int k = j + 1;
+            int l = n - 1;
+            
+            while(k < l) {
+               long sum = (long) nums[i] + nums[j] + nums[k] + nums[l];
+               
+               if(sum == target) {
+                  List<Integer> temp = new ArrayList<>();
+                  temp.add(nums[i]);
+                  temp.add(nums[j]);
+                  temp.add(nums[k]);
+                  temp.add(nums[l]);
+                  ans.add(temp);
+                  
+                  k++;
+                  l--;
+                  
+                  while(k < n && nums[k] == nums[k-1]) { // Skip duplicates
+                        k++;
+                  }
+                  while(l > 0 && nums[l] == nums[l+1]) { // Skip duplicates
+                        l--;
+                  }
+               }
+               else if(sum < target) k++;
+               else l--;
+            }
+      }
+   }
+   return ans;
+}
 ```
