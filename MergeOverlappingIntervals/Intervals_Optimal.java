@@ -14,7 +14,7 @@ class Solution {
         List<List<Integer>> ls = new ArrayList<>();
         ls.add(temp);
         // System.out.println("LIST: "+ls);
-
+        
         for (int i=1; i<rows; i++) {
             int end = ls.size()-1;
             if ( (nums[i][0] >= ls.get(end).get(0)) && (nums[i][0] <= ls.get(end).get(1))) {
@@ -26,23 +26,23 @@ class Solution {
             }
         }
         System.out.println("RESULT LIST: "+ls);
-
+        
         int[][] ans = convertToArray(ls);
         return ans;
     }
-
+    
     public static int[][] convertToArray(List<List<Integer>> nestedList) {
         int rows = nestedList.size();
         int cols = nestedList.get(0).size();
-
+        
         int[][] array = new int[rows][cols];
-
+        
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 array[i][j] = nestedList.get(i).get(j);
             }
         }
-
+        
         return array;
     }
 }
@@ -56,11 +56,11 @@ public class Intervals_Optimal {
                                 {8, 10}, 
                                 {15, 18}
                             };
-
+        
         // int[][] intervals = {{1,4}, {4,5}};
         // int[][] intervals = {{4, 2}, {1, 5}, {7, 8}};
         // int[][] intervals = {{4, 2}, {1, 5}, {4, 3}, {7, 8}, {4, 1}, {1, 2}};
-
+        
         Solution solve = new Solution();
         int[][] result = solve.minimizeIntervals(intervals);
         System.out.println("RESULT ARRAY: "+Arrays.deepToString(result));
