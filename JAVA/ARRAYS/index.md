@@ -22,7 +22,7 @@
 | 20  | [`Count total number of Subarrays Sum Equals K using XOR`](THREE.md)             | THREE.md               |
 | 21  | [`Find the Majority Element that occurs more than N/2 times`](FOUR.md)           | FOUR.md                |
 | 22  | [`Find the Majority Element that occurs more than N/3 times`](FOUR.md)           | FOUR.md                |
-| 23  | [2Sum, 3Sum & 4Sum](5-2Sum_3Sum_4Sum.md)                                         | 5-2Sum_3Sum_4Sum.md    |
+| 23  | [`2Sum, 3Sum & 4Sum`](5-2Sum_3Sum_4Sum.md)                                       | 5-2Sum_3Sum_4Sum.md    |
 | 24  | [`Merge Intervals`](6.md)                                                        | 6.md                   |
 | 25  | [`Missing & Repeating`](6.md)                                                    | 6.md                   |
 | 26  | [`Count Inversion`](7-CountInversion.md)                                         | 7-CountInversion.md    |
