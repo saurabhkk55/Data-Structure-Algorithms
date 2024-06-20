@@ -86,7 +86,7 @@ public static int findMaxConsecutiveOnes(int[] nums) {
    
 <hr style="border: 10px solid green;">
 
-# 3. `Find the number that appears once, and the other numbers twice`
+# 3. `Find the number that appears once, and all other numbers twice`
 
 ```java
 // Input

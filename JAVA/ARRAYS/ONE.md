@@ -44,7 +44,7 @@ return secondSmallest;
 
 <hr style="border: 10px solid green;">
 
-# 3. `Second Largest Element:`
+# 3. `Second Largest Element`
 
 ```java
 // Input
