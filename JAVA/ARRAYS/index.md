@@ -16,7 +16,7 @@
 | 14  | [`Stock Buy and Sell`](two.md)                                                   | two.md                 |
 | 15  | [`Merge Two Sorted Arrays Without Extra Space`](two.md)                          | two.md                 |
 | 16  | [`To sort an array containing only 0s, 1s, and 2s`](THREE.md)                    | THREE.md               |
-| 17  | [`Kadane's Algorithm` : `Maximum Subarray Sum in an Array`](THREE.md)            | THREE.md               |
+| 17  | [`Kadane's Algorithm : Maximum Subarray Sum in an Array`](THREE.md)              | THREE.md               |
 | 18  | [`Longest Subarray with given Sum K`](THREE.md)                                  | THREE.md               |
 | 19  | [`Count total number of Subarrays Sum Equals K`](THREE.md)                       | THREE.md               |
 | 20  | [`Count total number of Subarrays Sum Equals K using XOR`](THREE.md)             | THREE.md               |
