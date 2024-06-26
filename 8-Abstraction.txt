@@ -1,0 +1,65 @@
+Abstraction in Java
+Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+
+Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.
+
+There are two ways to achieve abstraction in java
+Abstract class (0 to 100%)
+Interface (100%)
+
+### Abstract
+
+In Java, the `abstract` keyword is used to define abstract classes and methods.
+
+- **Abstract Method**:
+  - An abstract method is a method that is declared without an implementation.
+  - It is meant to be overridden in derived classes.
+  - Any class containing one or more abstract methods must be declared as abstract.
+
+  ```java
+  abstract class Shape {
+      abstract void draw(); // Abstract method
+  }
+  ```
+
+### Abstract Class
+A class which is declared as abstract is known as an abstract class.
+- **Characteristics of Abstract Class**:
+  - An abstract class cannot be instantiated directly. You cannot create an object of an abstract class.
+  - It can contain abstract methods, which are methods without a body.
+  - It can also contain concrete methods, which are regular methods with a body.
+  - It can have member variables and constructors.
+  - Subclasses of an abstract class must implement all abstract methods of the abstract class unless they are also declared abstract.
+
+- **Example**:
+  ```java
+  abstract class Animal {
+      // Abstract method (does not have a body)
+      abstract void sound();
+      
+      // Regular method
+      void sleep() {
+          System.out.println("Sleeping...");
+      }
+  }
+
+  // Subclass (inherited from Animal)
+  class Dog extends Animal {
+      // The body of sound() is provided here
+      void sound() {
+          System.out.println("Barks");
+      }
+  }
+
+  public class Main {
+      public static void main(String[] args) {
+          Dog myDog = new Dog();
+          myDog.sound(); // Outputs: Barks
+          myDog.sleep(); // Outputs: Sleeping...
+      }
+  }
+  ```
+
+In this example:
+- `Animal` is an abstract class with an abstract method `sound()` and a concrete method `sleep()`.
+- `Dog` is a subclass of `Animal` that provides the implementation for the `sound()` method.

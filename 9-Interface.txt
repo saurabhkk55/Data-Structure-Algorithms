@@ -1,0 +1,83 @@
+### Key Points About Interfaces
+
+- **Method Signatures Only**: Interfaces can declare methods, but these methods are abstract by default (prior to Java 8) and do not contain any implementation.
+- **Default Methods**: From Java 8 onward, interfaces can contain default methods, which are methods with a default implementation.
+- **Static Methods**: From Java 8 onward, interfaces can also contain static methods.
+- **Constant Fields**: All fields in an interface are implicitly public, static, and final.
+- **Multiple Inheritance**: A class can implement multiple interfaces, allowing Java to overcome the limitation of single inheritance from classes.
+
+### Defining and Implementing an Interface
+
+#### Example of an Interface
+
+```java
+interface Animal {
+    void sound(); // Abstract method
+    void sleep(); // Abstract method
+    
+    // Default method
+    default void run() {
+        System.out.println("Running...");
+    }
+
+    // Static method
+    static void eat() {
+        System.out.println("Eating...");
+    }
+}
+```
+
+#### Implementing an Interface
+
+```java
+class Dog implements Animal {
+    // Providing implementation of abstract methods
+    public void sound() {
+        System.out.println("Barks");
+    }
+
+    public void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.sound(); // Outputs: Barks
+        myDog.sleep(); // Outputs: Sleeping...
+        myDog.run();   // Outputs: Running...
+
+        // Calling static method
+        Animal.eat();  // Outputs: Eating...
+    }
+}
+```
+
+### Characteristics and Usage of Interfaces
+
+- **Abstraction**: Interfaces allow you to define methods that must be implemented by any class that implements the interface. This provides a way to define the behavior that a class must have.
+- **Multiple Inheritance**: Unlike classes, a Java class can implement multiple interfaces. This is Java's way of achieving multiple inheritance.
+  
+  ```java
+  interface Flyable {
+      void fly();
+  }
+
+  interface Swimmable {
+      void swim();
+  }
+
+  class Duck implements Flyable, Swimmable {
+      public void fly() {
+          System.out.println("Duck is flying");
+      }
+
+      public void swim() {
+          System.out.println("Duck is swimming");
+      }
+  }
+  ```
+
+- **Loose Coupling**: Interfaces help in reducing the dependency between classes, promoting loose coupling. You can change the implementation of a class without affecting other classes that use the interface.
+

@@ -1,0 +1,17 @@
+Access Modifiers in Java
+
+The access modifiers in Java specifies the accessibility or scope of a field, method, constructor, or class.
+
+| Access Modifier | Within Class | Within Package | Outside Package by Subclass Only | Outside Package |
+|-----------------|--------------|----------------|----------------------------------|-----------------|
+| **Private**     | Y            | N              | N                                | N               |
+| **Default**     | Y            | Y              | N                                | N               |
+| **Protected**   | Y            | Y              | Y                                | N               |
+| **Public**      | Y            | Y              | Y                                | Y               |
+
+### Explanation:
+
+- **Private**: The member is accessible only within the class it is declared.
+- **Default** (no modifier): The member is accessible only within the same package.
+- **Protected**: The member is accessible within the same package and in subclasses (even if they are in different packages).
+- **Public**: The member is accessible from any other class.

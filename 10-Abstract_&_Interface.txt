@@ -1,0 +1,104 @@
+### Key Differences
+
+1. **Implementation**:
+   - **Abstract Class**: Can provide some implementation. Subclasses can use or override these methods.
+   - **Interface**: Cannot provide any implementation (except default methods and static methods). Implementing classes must provide the method implementations.
+
+2. **Instantiation**:
+   - **Abstract Class**: Cannot be instantiated directly.
+   - **Interface**: Cannot be instantiated directly.
+
+3. **Inheritance**:
+   - **Abstract Class**: A class can extend only one abstract class.
+   - **Interface**: A class can implement multiple interfaces.
+
+4. **Fields**:
+   - **Abstract Class**: Can have instance fields.
+   - **Interface**: Can have only static final fields (constants).
+
+5. **Methods**:
+   - **Abstract Class**: Can have a mix of abstract and concrete methods.
+   - **Interface**: Methods are abstract by default (unless they are default or static).
+
+6. **Constructors**:
+   - **Abstract Class**: Can have constructors.
+   - **Interface**: Cannot have constructors.
+
+### Example
+
+**Abstract Class Example**:
+
+```java
+abstract class Animal {
+    String name;
+
+    Animal(String name) {
+        this.name = name;
+    }
+
+    abstract void sound(); // Abstract method
+
+    void sleep() { // Concrete method
+        System.out.println(name + " is sleeping.");
+    }
+}
+
+class Dog extends Animal {
+    Dog(String name) {
+        super(name);
+    }
+
+    void sound() {
+        System.out.println(name + " barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog("Buddy");
+        myDog.sound(); // Outputs: Buddy barks.
+        myDog.sleep(); // Outputs: Buddy is sleeping.
+    }
+}
+```
+
+**Interface Example**:
+
+```java
+interface Animal {
+    void sound(); // Abstract method
+    void sleep(); // Abstract method
+
+    // Default method
+    default void run() {
+        System.out.println("Running...");
+    }
+
+    // Static method
+    static void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog implements Animal {
+    public void sound() {
+        System.out.println("Barks");
+    }
+
+    public void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.sound(); // Outputs: Barks
+        myDog.sleep(); // Outputs: Sleeping...
+        myDog.run();   // Outputs: Running...
+
+        // Calling static method
+        Animal.eat();  // Outputs: Eating...
+    }
+}
+```
