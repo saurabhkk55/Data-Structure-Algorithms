@@ -1,6 +1,7 @@
 A lambda function (or lambda expression) in Java is an anonymous function (a function without a name). It is primarily used to provide the implementation of a functional interface. A functional interface is an interface that has exactly one abstract method (SAM - Single Abstract Method). Instead of using traditional classes or anonymous inner classes to implement the method, you can use a lambda expression to give a concise, inline implementation.
 
 CODE-1: demonstrates how a lambda expression can be used to implement a method of a functional interface in Java:
+```java
 // Define a functional interface with a single abstract method
 @FunctionalInterface
 interface Greeting {
@@ -16,8 +17,10 @@ public class LambdaExample {
         greeting.sayHello("Saurabh");  // Output: Hello, Saurabh
     }
 }
+```
 
 CODE-2: The same code would look without using a lambda expression. In this version, we implement the functional interface using an anonymous inner class:
+```java
 // Define a functional interface with a single abstract method
 @FunctionalInterface
 interface Greeting {
@@ -38,10 +41,13 @@ public class LambdaExample {
         greeting.sayHello("Saurabh");  // Output: Hello, Saurabh
     }
 }
+```
 
 ##################################################################################################
 
 Lambda expressions in Java provide a concise way to represent anonymous functions (functions without a name). They offer several key features that enhance code readability and maintainability. Let’s explore the features you mentioned:
+
+##################################################################################################
 
 ### 1. Lambda Expressions as Method Parameters
 
@@ -109,7 +115,7 @@ In this example:
 ##################################################################################################
 
 
-What are the various categories of pre-defined function interfaces?
+### What are the various categories of pre-defined function interfaces?
 ANS)
 In Java, there are several pre-defined functional interfaces in the java.util.function package, introduced in Java 8, which are categorized based on the number and types of parameters and return values they handle.
 
@@ -245,7 +251,7 @@ public class BinaryOperatorExample {
 ##################################################################################################
 
 
-What are static methods in Interfaces?
+### What are static methods in Interfaces?
 ANS)
 In Java, interfaces can have static methods in addition to instance methods and default methods. Static methods in interfaces are a feature introduced in Java 8.
 
@@ -305,12 +311,12 @@ public class StaticMethodExample {
 
 ##################################################################################################
 
-What is the default method, and why is it required?
+### What is the default method, and why is it required?
 ANS)
 - Default Method: A default method in an interface is a method with a concrete implementation provided directly in the interface. It uses the default keyword to specify this behavior.
 - No Obligation to Override: Classes that implement the interface are not required to override the default method. If they do not provide their own implementation, the default implementation from the interface is used.
 - Option to Override: If an implementing class needs a different behavior for the default method, it can override the default method with its own implementation.
-
+```java
 interface Animal {
     // Default method
     default void makeSound() {
@@ -341,10 +347,11 @@ public class DefaultMethodExample {
         myDog.eat();        // Output: Dog is eating.
     }
 }
+```
 
 ##################################################################################################
 
-Can a functional interface extend/inherit another interface?
+Can a functional interface extend/inherit from another interface?
 ANS)
 Yes, a functional interface can extend or inherit from another interface, including other functional interfaces. However, there are specific rules and conditions that need to be met for this to be valid:
 
@@ -355,7 +362,7 @@ Yes, a functional interface can extend or inherit from another interface, includ
 ```java
 @FunctionalInterface
 interface BasicOperation {
-    int operate(int a, int b);
+    int operate(int a, int b); // by-default is abstract method in interface
 }
 
 @FunctionalInterface
@@ -411,7 +418,7 @@ In this example, `AdvancedOperation` is still a valid functional interface becau
 - Adding additional abstract methods in the extending interface would disqualify it from being a functional interface.
 
 ##################################################################################################
-What are functional or SAM interfaces?
+### What are functional or SAM interfaces?
 
 Functional interfaces, also known as Single Abstract Method (SAM) interfaces, are a special kind of interface introduced in Java 8. They are designed to work with lambda expressions and method references, providing a way to represent single-method contracts.
 
@@ -521,12 +528,12 @@ PremGen: MetaData information of classes was stored in PremGen (Permanent-Genera
 MetaSpace: Java 8 stores the MetaData of classes in native memory called 'MetaSpace'. It is not a contiguous Heap Memory and hence can be grown dynamically which helps to overcome the size constraints. This improves the garbage collection, auto-tuning, and de-allocation of metadata.
 
 ###
-Feature				PermGen							MetaSpace
--------------------------------------------------------------------------------------------
-Location			Non-heap memory					Native memory
-Sizing				Fixed at startup				Dynamically grows
-Garbage Collection	Not managed by GC				Managed by GC
-OutOfMemoryError	Prone to OOM due to fixed size	Less likely due to dynamic sizing
+Feature				| PermGen							    |MetaSpace
+--------------------| --------------------------------------|---------------------------------
+Location			| Non-heap memory					    |Native memory
+Sizing				| Fixed at startup				        |Dynamically grows
+Garbage Collection	| Not managed by GC				        |Managed by GC
+OutOfMemoryError	| Prone to OOM due to fixed size	    |Less likely due to dynamic sizing
 
 
 ##################################################################################################
@@ -544,16 +551,17 @@ Logic programming language
 11. Describe the newly added features in Java 8?
 ANS)
 Here are the newly added features of Java 8:
-Feature Name							Description
-------------------------------------------------------------------------------------------------------
-Lambda expression						A function that can be shared or referred to as an object.
-Functional Interfaces					Single abstract method interface.
-Method References						Uses function as a parameter to invoke a method.
-Default method							It provides an implementation of methods within interfaces enabling 'Interface evolution' facilities.
-Stream API								Abstract layer that provides pipeline processing of the data.
-Date Time API							New improved joda-time inspired APIs to overcome the drawbacks in previous versions
-Optional								Wrapper class to check the null values and helps in further processing based on the value.
-Nashorn, JavaScript Engine				An improvised version of JavaScript Engine that enables JavaScript executions in Java, to replace Rhino.
+
+Feature Name							|Description
+----------------------------------------|--------------------------------------------------------------
+Lambda expression						|A function that can be shared or referred to as an object.
+Functional Interfaces					|Single abstract method interface.
+Method References						|Uses function as a parameter to invoke a method.
+Default method							|It provides an implementation of methods within interfaces enabling 'Interface evolution' facilities.
+Stream API								|Abstract layer that provides pipeline processing of the data.
+Date Time API							|New improved joda-time inspired APIs to overcome the drawbacks in previous versions
+Optional								|Wrapper class to check the null values and helps in further processing based on the value.
+Nashorn, JavaScript Engine				|An improvised version of JavaScript Engine that enables JavaScript executions in Java, to replace Rhino.
 
 
 ##################################################################################################

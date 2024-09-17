@@ -9,5 +9,5 @@ class Subclass-name extends Superclass-name
 The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.
 
 Types of inheritance in java
-On the basis of class, there can be three types of inheritance in java: single(parent_A <- child_parent_A), multilevel(parent_A <- child_parent_A <- child_parent_A) and hierarchical(parent_A <- first_child_parent_A, parent_A <- second_child_parent_A).
+On the basis of class, there can be three types of inheritance in java: single(parent_A <- child_parent_A), multilevel(parent_A <- child_parent_A <- child_child_parent_A) and hierarchical(parent_A <- first_child_parent_A, parent_A <- second_child_parent_A).
 In java programming, multiple and hybrid inheritance is supported through interface only. We will learn about interfaces later.
