@@ -1,4 +1,4 @@
-A lambda function (or lambda expression) in Java is an anonymous function (a function without a name). It is primarily used to provide the implementation of a functional interface. A functional interface is an interface that has exactly one abstract method (SAM - Single Abstract Method). Instead of using traditional classes or anonymous inner classes to implement the method, you can use a lambda expression to give a concise, inline implementation.
+  A lambda function (or lambda expression) in Java is an anonymous function (a function without a name). It is primarily used to provide the implementation of a functional interface. A functional interface is an interface that has exactly one abstract method (SAM - Single Abstract Method). Instead of using traditional classes or anonymous inner classes to implement the method, you can use a lambda expression to give a concise, inline implementation.
 
 CODE-1: demonstrates how a lambda expression can be used to implement a method of a functional interface in Java:
 ```java
