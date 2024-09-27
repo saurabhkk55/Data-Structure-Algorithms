@@ -4,6 +4,8 @@ https://chatgpt.com/c/66dd9452-9308-8011-8ff1-6c5d36ab14f2 - bean lifecycle
 
 https://chatgpt.com/c/66e3cd4f-a5cc-8011-80ce-6a0430fa1ab4 - JPA object lifecycle
 
+https://chatgpt.com/c/66e3d8bd-af34-8011-b4a5-6747fc362abf - OAUth, @Primary & @Qualifier
+
 https://riteshpanigrahi.com/spring-security-architecture-and-internal-workflow?utm_source=perplexity#heading-step-1
 
 

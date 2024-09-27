@@ -1,3 +1,8 @@
+https://chatgpt.com/c/66df360a-7770-8011-a7b3-c2018ae90d8b - Microservice interview questions
+https://chatgpt.com/c/66e3bf86-ca98-8011-828b-9596ff950027 - handle Microservice communicate failure
+
+
+
 ### 1. Instead of writing boilerplate code we can add dependency in the pom.xml?
 
 Yes, in Spring Boot, you can avoid writing boilerplate code by adding specific dependencies to the `pom.xml` file. These dependencies bring in the necessary libraries and configurations automatically, allowing you to focus on building your application instead of manually setting up configurations.
