@@ -1,7 +1,14 @@
+https://chatgpt.com/c/66dbf684-075c-8011-94fe-73a3da18cce2 - Spring boot
+
+https://chatgpt.com/c/66dd9452-9308-8011-8ff1-6c5d36ab14f2 - bean lifecycle
+
+https://chatgpt.com/c/66e3cd4f-a5cc-8011-80ce-6a0430fa1ab4 - JPA object lifecycle
+
+https://chatgpt.com/c/66e3d8bd-af34-8011-b4a5-6747fc362abf - OAUth, @Primary & @Qualifier
+
 https://chatgpt.com/c/66df360a-7770-8011-a7b3-c2018ae90d8b - Microservice interview questions
-https://chatgpt.com/c/66e3bf86-ca98-8011-828b-9596ff950027 - handle Microservice communicate failure
 
-
+https://chatgpt.com/c/66e3bf86-ca98 -8011-828b-9596ff950027 - handle Microservice communicate failure
 
 ### 1. Instead of writing boilerplate code we can add dependency in the pom.xml?
 

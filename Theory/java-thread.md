@@ -1,4 +1,7 @@
 https://chatgpt.com/share/cb75f5af-f0ad-4625-a536-a0070219d690
+https://chatgpt.com/c/66eea5b7-6e58-8011-a969-6c19352a74d6 - volatile and Atomic class
+https://chatgpt.com/c/66fad271-c4c0-8011-9657-c2b8eb9db6ff - Virtual Thread
+https://chatgpt.com/c/66fae2f6-6bfc-8011-a17d-1534c57067ff - Virtual Thread
 
 What is multithreading?
 ANS)
