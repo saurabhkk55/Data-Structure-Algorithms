@@ -204,10 +204,10 @@ public static int findLongestSubarrayWithSumK(int[] arr, int K) {
 ```java
 // Input
 int[] nums = {1, 1, 1};
-int k = 2;
+int k = 2; // OUTPUT: 2
 
-// OUTPUT
-2
+int[] nums = {2, 0, 0, 0, 2};
+int k = 2; // OUTPUT: 8
 ```
 
 ```java
