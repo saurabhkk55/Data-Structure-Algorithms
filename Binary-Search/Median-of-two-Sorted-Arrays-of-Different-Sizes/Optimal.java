@@ -1,4 +1,4 @@
-class Solution {
+ class Solution {
     public static double median(int[] a, int[] b) {
         int n1 = a.length, n2 = b.length;
         //if n1 is bigger swap the arrays:
