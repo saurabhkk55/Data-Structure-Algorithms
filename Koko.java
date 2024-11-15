@@ -22,6 +22,10 @@ class Koko_time {
 }
 public class Koko {
     // 3, 4, 5, 6, 7, 8, 9, 10, 11 => possible answers
+    // 3bananas/hour => (3/3) + (6/3) + (7/3) + (11/3) => 1 + 2 + 3 + 4 => 10 hours
+    
+
+    // 11bananas/hour => (3/11) + (6/11) + (7/11) + (11/11) => 1 + 1 + 1 + 1 => 4 hours
     public static void main(String[] args) {
         int[] arr = {3,6,7,11};
         int n = arr.length;
